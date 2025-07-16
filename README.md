@@ -1,44 +1,46 @@
-📱 Device Fingerprint Demo App
-This is a demonstration Android application that generates a unique device fingerprint by collecting a variety of system and hardware attributes. The goal is to showcase how device identifiers and environmental data can be hashed to produce a consistent but anonymized fingerprint.
+# 📱 Device Fingerprint Demo App
 
-🔍Features
-Collects device-specific properties such as:
+This is a demonstration Android application that generates a **device fingerprint** by gathering various hardware, software, and system-level properties. The app then creates a **SHA-256 hash** of these values to produce a unique, privacy-aware identifier.
 
-Android ID
+---
 
-Build information
+## 🔧 Features
 
-Screen resolution and density
+- Collects device properties:
+  - Android ID
+  - Build fingerprint, brand, model, hardware info
+  - Screen resolution and density
+  - Locale and timezone
+  - Supported ABIs
+  - App version (code + name)
+  - System uptime and boot time
+- Generates a single string combining all the above
+- Hashes the string using SHA-256
+- Displays all the details and the resulting hash on screen
 
-Supported ABIs
+---
 
-Locale and timezone
+## ⚠️ Disclaimer
 
-App version
+This project is for **educational and demonstration purposes only**.  
+Using sensitive identifiers (such as `ANDROID_ID`, `Build.FINGERPRINT`, etc.) in production apps should be done **only for security or fraud prevention**, as per [Google Play policy](https://developer.android.com/privacy-and-security/data-usage).
 
-System uptime and boot time
+> 🚫 Do **not** use this fingerprinting technique for advertising or tracking users.
 
-Combines all data into a single string
+## 🛠 Tech Stack
 
-Applies SHA-256 hashing to produce a privacy-preserving fingerprint
+- **Kotlin**
+- **Android SDK (API 31+)**
+- `MessageDigest` for cryptographic hashing
+- Simple XML-based layout (`TextView`)
 
-Displays all information neatly in the UI for debugging or analysis
+---
 
-⚠️ Disclaimer
-This app is for educational and demonstration purposes only.
-Using certain device identifiers (like Android ID) in production apps may violate Google Play policies unless used for valid security or fraud prevention reasons.
-No data is transmitted or stored externally.
+## 📸 Screenshot
 
+> ✅ This screenshot is a **mockup** and contains **made-up data**  
+> No real device identifiers are included
 
-🛠️ Tech Stack
-Kotlin
-
-Android SDK
-
-Jetpack (AppCompat)
-
-SHA-256 via java.security.MessageDigest
-
-
-📸 Screenshots
 <img width="1024" height="1536" alt="ChatGPT Image Jul 16, 2025, 11_43_35 AM" src="https://github.com/user-attachments/assets/26f1e93c-42bd-43a6-a126-04d895b0a0e6" />
+
+
